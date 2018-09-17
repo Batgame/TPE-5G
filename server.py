@@ -1,7 +1,7 @@
 import socket, sys
 
 host = '192.168.1.11'
-port= '8080'
+port= 8080
 counter = 0
 
 MainSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -25,7 +25,7 @@ while 1:
 	connexion.send(MsgServeur.encode('Utf-8')) #Le message de bienvenue est envoyé au client (encodé en UTF8)
 	MsgClient = connexion.recv(1024).decode('Utf-8') #Si reception d'un message du client, le decoder
 	while 1:
-		print('Client> 'MsgClient)
+		print('Client> ', MsgClient)
 		if MsgClient.upper() == "FIN" or MsgClient == "":
 			break
 		MsgServeur = input('Serveur> ')

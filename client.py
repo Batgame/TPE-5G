@@ -1,7 +1,7 @@
 import socket, sys
 
 host = '192.168.1.11'
-port = '8080'
+port = 8080
 
 MainSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
