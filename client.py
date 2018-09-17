@@ -1,27 +1,45 @@
-import socket, sys
+import socket, sys, threading
 
 host = '192.168.1.11'
 port = 8080
 
-MainSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+class ThreadReceptionMsg(threading.Thread):
+	def __init__(self, conn):
+		threading.Thread.__init__(self)
+		self.connexion = conn
 
+	def run(self):
+		while 1:
+			MsgRecu = self.connexion.recv(1024).decode('Utf-8')
+			print('*' + MsgRecu + '*')
+			if not MsgRecu or MsgRecu.upper() == "FIN":
+				break
+
+		Th_E._stop()
+		print('[*] Connexion interrompue')
+		self.connexion.close()
+
+class ThreadEmissionMsg(threading.Thread):
+	def __init__(self, conn):
+		threading.Thread.__init__(self)
+		self.connexion = conn
+
+		def run(self):
+			while 1:
+				MessageEmis = input()
+				self.connexion.send(MessageEmis.encode('Utf-8'))
+
+MainSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 try:
-	MainSocket.connect((host, port))
+	connexion.connect((host, port))
 
 except socket.error:
 	print('[*] La connexion a échoué')
 	sys.exit()
-print('[*] Connexion établie avec le serveur')
+print('Connexion établie avec le serveur')
 
-MsgServeur = MainSocket.recv(1024).decode('Utf-8')
-
-while 1:
-	if MsgServeur.upper() == "FIN" or MsgServeur == "":
-		break
-	print('Serveur> ', MsgServeur)
-	MsgClient = input('Client> ')
-	MainSocket.send(MsgClient.encode('Utf-8'))
-	MsgServeur = MainSocket.recv(1024).decode('Utf-8')
-
-print('[*] Connexion interrompue')
-MainSocket.close()
+Th_E = ThreadEmissionMsg(connexion)
+Th_R = ThreadReceptionMsg(connexion)
+Th_R.start()
+Th_E.start()
+		
