@@ -29,7 +29,7 @@ class ThreadEmissionMsg(threading.Thread):
 				MessageEmis = input()
 				self.connexion.send(MessageEmis.encode('Utf-8'))
 
-MainSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+connexion = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 try:
 	connexion.connect((host, port))
 
