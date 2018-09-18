@@ -38,10 +38,10 @@ MainSocket.listen(5)
 conn_client = {}
 while 1:
 	connexion, adresse = MainSocket.accept()
-	th_C = ThreadClient(connexion)
-	th_C.start()
+	th = ThreadClient(connexion)
+	th.start()
 
-	it = ThreadClient.getName()
+	it = th.getName()
 	conn_client[it] = connexion
 	print('Client %s connecté, adresse IP %s, port %s' % (it, adresse[0], adresse[1]))
 
