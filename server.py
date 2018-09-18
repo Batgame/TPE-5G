@@ -41,7 +41,7 @@ while 1:
 	th_C = ThreadClient(connexion)
 	th_C.start()
 
-	it = th_C.getName()
+	it = ThreadClient.getName()
 	conn_client[it] = connexion
 	print('Client %s connecté, adresse IP %s, port %s' % (it, adresse[0], adresse[1]))
 
