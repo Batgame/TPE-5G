@@ -6,7 +6,7 @@ port = 8080
 class ThreadReceptionMsg(threading.Thread):
 	def __init__(self, conn):
 		threading.Thread.__init__(self)
-		self.connexion = conn
+		self.connexion = conn # réf. du socket de connexion
 
 	def run(self):
 		while 1:
