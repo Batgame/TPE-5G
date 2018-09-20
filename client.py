@@ -1,6 +1,6 @@
 import socket, sys, threading
 
-host = '192.168.1.11'
+host = '192.168.1.14'
 port = 8080
 
 class ThreadReceptionMsg(threading.Thread):
@@ -26,7 +26,7 @@ class ThreadEmissionMsg(threading.Thread):
 
 		def run(self):
 			while 1:
-				MessageEmis = input()
+				MessageEmis = input('Vous > ')
 				self.connexion.send(MessageEmis.encode('Utf-8'))
 
 connexion = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

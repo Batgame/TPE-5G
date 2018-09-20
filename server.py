@@ -1,6 +1,6 @@
 import socket, sys, threading
 
-host = '192.168.1.11'
+host = '192.168.1.14'
 port= 8080
 
 class ThreadClient(threading.Thread):
