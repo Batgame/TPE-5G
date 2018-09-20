@@ -51,5 +51,7 @@ while 1:
 	conn_client[it] = connexion
 	print('Client %s connecté, adresse IP %s, port %s' % (it, adresse[0], adresse[1]))
 	# Dialogue avec le client :
-	msg = 'Vous êtes connecté, envoyez vos messages'
+	msg = 'Vous êtes connecté, entré votre pseudo pour le serveur: '
 	connexion.send(msg.encode('Utf-8'))
+	GetPseudo = self.connexion.recv(1024).decode('Utf-8')
+	nom = GetPseudo

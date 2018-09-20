@@ -24,10 +24,10 @@ class ThreadEmissionMsg(threading.Thread):
 		threading.Thread.__init__(self)
 		self.connexion = conn
 
-		def run(self):
-			while 1:
-				MessageEmis = input('Vous > ')
-				self.connexion.send(MessageEmis.encode('Utf-8'))
+	def run(self):
+		while 1:
+			MessageEmis = input()
+			self.connexion.send(MessageEmis.encode('Utf-8'))
 
 connexion = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 try:
@@ -36,7 +36,7 @@ try:
 except socket.error:
 	print('[*] La connexion a échoué')
 	sys.exit()
-print('Connexion établie avec le serveur')
+print('[*] Connexion établie avec le serveur')
 
 Th_E = ThreadEmissionMsg(connexion)
 Th_R = ThreadReceptionMsg(connexion)
