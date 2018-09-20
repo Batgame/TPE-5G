@@ -11,7 +11,7 @@ class ThreadClient(threading.Thread):
 	def run(self):
 		nom = self.getName()
 		while 1:
-			if GetPseudo in globals():
+			if 'GetPseudo' in globals():
 				nom = GetPseudo
 			MsgClient = self.connexion.recv(1024).decode('Utf-8')
 			if not MsgClient or MsgClient.upper() == 'FIN':
