@@ -11,8 +11,6 @@ class ThreadClient(threading.Thread):
 	def run(self):
 		nom = self.getName()
 		while 1:
-			if 'GetPseudo' in globals():
-				nom = GetPseudo
 			MsgClient = self.connexion.recv(1024).decode('Utf-8')
 			if not MsgClient or MsgClient.upper() == 'FIN':
 				break
@@ -53,8 +51,8 @@ while 1:
 	conn_client[it] = connexion
 	print('Client %s connecté, adresse IP %s, port %s' % (it, adresse[0], adresse[1]))
 	# Dialogue avec le client :
-	msg = '[*]Vous êtes connecté, entré votre pseudo pour le serveur: [*]'
+	msg = '[*]Vous êtes connecté [*]'
 	connexion.send(msg.encode('Utf-8'))
-	GetPseudo = connexion.recv(1024).decode('Utf-8')
+
 
 
