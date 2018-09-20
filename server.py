@@ -9,7 +9,7 @@ class ThreadClient(threading.Thread):
 		self.connexion = conn
 
 	def run(self):
-		nom = self.getName()
+		nom = GetPseudo
 		while 1:
 			MsgClient = self.connexion.recv(1024).decode('Utf-8')
 			if not MsgClient or MsgClient.upper() == 'FIN':
@@ -54,4 +54,4 @@ while 1:
 	msg = 'Vous êtes connecté, entré votre pseudo pour le serveur: '
 	connexion.send(msg.encode('Utf-8'))
 	GetPseudo = connexion.recv(1024).decode('Utf-8')
-	nom = GetPseudo
+	print(GetPseudo)
