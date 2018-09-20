@@ -36,7 +36,6 @@ try:
 except socket.error:
 	print('[*] La connexion a échoué')
 	sys.exit()
-print('[*] Connexion établie avec le serveur')
 
 Th_E = ThreadEmissionMsg(connexion)
 Th_R = ThreadReceptionMsg(connexion)
