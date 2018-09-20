@@ -53,5 +53,5 @@ while 1:
 	# Dialogue avec le client :
 	msg = 'Vous êtes connecté, entré votre pseudo pour le serveur: '
 	connexion.send(msg.encode('Utf-8'))
-	GetPseudo = self.connexion.recv(1024).decode('Utf-8')
+	GetPseudo = connexion.recv(1024).decode('Utf-8')
 	nom = GetPseudo
