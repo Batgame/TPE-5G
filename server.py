@@ -1,6 +1,6 @@
 import socket, sys, threading
 
-host = '192.168.1.11'
+host = '192.168.1.x'
 port= 8080
 
 class ThreadClient(threading.Thread):
@@ -51,5 +51,8 @@ while 1:
 	conn_client[it] = connexion
 	print('Client %s connecté, adresse IP %s, port %s' % (it, adresse[0], adresse[1]))
 	# Dialogue avec le client :
-	msg = 'Vous êtes connecté, envoyez vos messages'
+	msg = '[*]Vous êtes connecté [*]'
 	connexion.send(msg.encode('Utf-8'))
+
+
+
