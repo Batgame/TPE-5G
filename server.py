@@ -26,7 +26,7 @@ class ThreadClient(threading.Thread):
 		self.connexion.close() # Couper la connexion coté serveur
 		del conn_client[nom] # Supprimer son entrée du dictionnaire
 		print('Client %s déconnecté' % nom)
-		# Fin du Thread
+		 Fin du Thread
 
 # Initialisation du serveur - Mise en place du socket :
 MainSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
